@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/webhook', function (\Illuminate\Http\Request $request) {
+    $content = $request->getContent();
+    file_put_contents("webhooks/" . now()->unix() . ".json", $content);
+    return Response::noContent();
+});

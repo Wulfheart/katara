@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d89dbf0889efe6247ea41c88fae5e97c",
+    "content-hash": "56256d623ae3fe602c02328207e9cb26",
     "packages": [
         {
             "name": "brick/math",
@@ -3550,80 +3550,6 @@
                 }
             ],
             "time": "2021-07-11T12:37:55+00:00"
-        },
-        {
-            "name": "renoki-co/laravel-php-k8s",
-            "version": "3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/renoki-co/laravel-php-k8s.git",
-                "reference": "85f45c3f9f575ed9aac0f2053e2cf9c582c5a78b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/renoki-co/laravel-php-k8s/zipball/85f45c3f9f575ed9aac0f2053e2cf9c582c5a78b",
-                "reference": "85f45c3f9f575ed9aac0f2053e2cf9c582c5a78b",
-                "shasum": ""
-            },
-            "require": {
-                "renoki-co/php-k8s": "^3.6"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^6.28|^7.0",
-                "orchestra/testbench-core": "^6.28|^7.0",
-                "phpunit/phpunit": "^9.5.13"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "RenokiCo\\LaravelK8s\\LaravelK8sServiceProvider"
-                    ]
-                },
-                "laravel-zero": {
-                    "providers": [
-                        "RenokiCo\\LaravelK8s\\LaravelK8sServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "RenokiCo\\LaravelK8s\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Renoki",
-                    "homepage": "https://github.com/rennokki",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Just a simple port of renoki-co/php-k8s for easier access in Laravel.",
-            "homepage": "https://github.com/renoki-co/laravel-php-k8s",
-            "keywords": [
-                "k3s",
-                "k8s",
-                "kube",
-                "kubernetes",
-                "laravel",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/renoki-co/laravel-php-k8s/issues",
-                "source": "https://github.com/renoki-co/laravel-php-k8s/tree/3.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/rennokki",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-02-10T01:19:26+00:00"
         },
         {
             "name": "renoki-co/php-k8s",

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
         \Illuminate\Database\Eloquent\Factories\Factory::guessFactoryNamesUsing(
             fn(string $modelName) => 'Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
+        Model::shouldBeStrict();
+        Model::unguard();
     }
 }
