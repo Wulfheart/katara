@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Domain\Hosting\K8s\CRD\CloudNativePostgresResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         );
         Model::shouldBeStrict();
         Model::unguard();
+
+        //CloudNativePostgresResource::register();
     }
 }
