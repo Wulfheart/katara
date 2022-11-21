@@ -16,4 +16,17 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getK8sLabels(): array
+    {
+        return [
+            'katara-project' => $this->name,
+            'katara-project-id' => $this->id
+        ];
+    }
+
+    public function getK8sNamespace(): string
+    {
+        return $this->name;
+    }
 }

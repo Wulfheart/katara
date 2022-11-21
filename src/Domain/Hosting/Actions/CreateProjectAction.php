@@ -16,7 +16,7 @@ class CreateProjectAction
             'user_id' => $userId,
         ]);
 
-        $this->getCluster()->namespace()->setName($project->name)->setLabels([
+        $this->getCluster()->namespace()->setName($project->getK8sNamespace())->setLabels([
             'katara-project' => $project->name,
             'katara-project-id' => $project->id
         ])->create();

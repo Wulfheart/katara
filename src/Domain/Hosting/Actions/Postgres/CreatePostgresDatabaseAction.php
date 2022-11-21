@@ -4,6 +4,7 @@ namespace Domain\Hosting\Actions\Postgres;
 
 use Domain\Hosting\K8s\CRD\CloudNativePostgresResource;
 use Domain\Hosting\K8s\GetClusterTrait;
+use Domain\Hosting\Models\Project;
 use Domain\Hosting\ValueObjects\Cpu;
 use Domain\Hosting\ValueObjects\Memory;
 use Domain\Hosting\ValueObjects\Storage;
@@ -13,9 +14,8 @@ class CreatePostgresDatabaseAction
     use GetClusterTrait;
 
     public function execute(
-        string  $project_id,
+        Project $project,
         string  $name,
-        string  $namespace,
         Cpu     $cpu,
         Memory  $memory,
         Storage $storage,
@@ -29,7 +29,7 @@ class CreatePostgresDatabaseAction
         $cloudNativePostgresResource = new CloudNativePostgresResource($cluster, [
             'metadata' => [
                 'name' => $name,
-                'namespace' => $namespace,
+                'namespace' => $project->getK8sNamespace(),
             ],
             'spec' => [
                 'instances' => $instances,
@@ -42,13 +42,14 @@ class CreatePostgresDatabaseAction
                         'cpu' => $cpu->toKubernetes(),
                         'memory' => $memory->toKubernetes(),
                     ],
-                    'limit' => [
+                    'limits' => [
                         'cpu' => $cpu->toKubernetes(),
                         'memory' => $memory->toKubernetes(),
                     ],
                 ],
             ],
         ]);
+        $cloudNativePostgresResource->setLabels($project->getK8sLabels());
         $cloudNativePostgresResource->create();
 
     }

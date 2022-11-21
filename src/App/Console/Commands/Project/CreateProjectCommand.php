@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Project;
 
 use Domain\Hosting\Actions\CreateProjectAction;
 use Domain\Users\Models\User;
@@ -10,7 +10,7 @@ use Thettler\LaravelConsoleToolkit\Attributes\ArtisanCommand;
 use Thettler\LaravelConsoleToolkit\Attributes\Option;
 use Thettler\LaravelConsoleToolkit\Concerns\UsesConsoleToolkit;
 
-#[ArtisanCommand(name: "project:create")]
+#[ArtisanCommand(name: "katara:project:create")]
 class CreateProjectCommand extends Command
 {
     use UsesConsoleToolkit;
