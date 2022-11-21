@@ -10,17 +10,27 @@ use Domain\Hosting\ValueObjects\Storage;
 use RenokiCo\PhpK8s\K8s;
 use RenokiCo\PhpK8s\KubernetesCluster;
 
-class CreatePostgresDatabaseAction {
+class CreatePostgresDatabaseAction
+{
     use GetClusterTrait;
 
-    public function execute(string $project_id, Cpu $cpu, Memory $memory, Storage $storage, int $instances): void {
+    public function execute(
+        string  $project_id,
+        string  $name,
+        string  $namespace,
+        Cpu     $cpu,
+        Memory  $memory,
+        Storage $storage,
+        int     $instances): void
+    {
         // TODO: Check if cpng is installed
 
         $cluster = $this->getCluster();
 
         $cloudNativePostgresResource = new CloudNativePostgresResource($cluster, [
             'metadata' => [
-                'name' => $project_id . "-db4",
+                'name' => $name,
+                'namespace' => $namespace,
             ],
             'spec' => [
                 'instances' => $instances,
