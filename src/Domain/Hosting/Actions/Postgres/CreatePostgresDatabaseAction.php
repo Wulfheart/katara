@@ -1,14 +1,12 @@
 <?php
 
-namespace Domain\Hosting\Actions;
+namespace Domain\Hosting\Actions\Postgres;
 
 use Domain\Hosting\K8s\CRD\CloudNativePostgresResource;
 use Domain\Hosting\K8s\GetClusterTrait;
 use Domain\Hosting\ValueObjects\Cpu;
 use Domain\Hosting\ValueObjects\Memory;
 use Domain\Hosting\ValueObjects\Storage;
-use RenokiCo\PhpK8s\K8s;
-use RenokiCo\PhpK8s\KubernetesCluster;
 
 class CreatePostgresDatabaseAction
 {
@@ -21,7 +19,8 @@ class CreatePostgresDatabaseAction
         Cpu     $cpu,
         Memory  $memory,
         Storage $storage,
-        int     $instances): void
+        int     $instances
+    ): void
     {
         // TODO: Check if cpng is installed
 

@@ -10,8 +10,9 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->foreignUuid('user_id');
+            $table->timestamps();
 
         });
     }
